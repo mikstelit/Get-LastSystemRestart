@@ -40,8 +40,8 @@ Function Get-LastSystemRestart
                 'Name' = $ComputerName;
                 'LastRestart' = $LastRestart
             }
+
             $System
-            #Write-Output ('{0}: {1}' -f $System.Name,$System.UpTime)
         }
     }
 }
