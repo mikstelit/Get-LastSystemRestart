@@ -3,8 +3,8 @@
    Outputs the time the systems were last restarted.
 .DESCRIPTION
    Takes a string array of computer names and outputs 
-   to the screen the computer's name and the last time 
-   the system was restarted.
+   the computer's name and the last time the system 
+   was restarted.
 .EXAMPLE
    Get-LastSystemRestart $ComputerNames
 .EXAMPLE
