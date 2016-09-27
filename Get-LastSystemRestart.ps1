@@ -29,19 +29,19 @@ Function Get-LastSystemRestart
             Try
             {
                 $OperatingSystem = Get-WmiObject -Class Win32_OperatingSystem -ComputerName $ComputerName -ErrorAction Stop
-                $UpTime = [Management.ManagementDateTimeConverter]::ToDateTime($OperatingSystem.LastBootUpTime)
+                $LastRestart = [Management.ManagementDateTimeConverter]::ToDateTime($OperatingSystem.LastBootUpTime)
             }
             Catch
             {
-                $UpTime = $Error[0].Exception.Message
+                $LastRestart = $Error[0].Exception.Message
             }
 
             [psobject]$System = @{
                 'Name' = $ComputerName;
-                'UpTime' = $UpTime
+                'LastRestart' = $LastRestart
             }
-
-            Write-Output ('{0}: {1}' -f $System.Name,$System.UpTime)
+            $System
+            #Write-Output ('{0}: {1}' -f $System.Name,$System.UpTime)
         }
     }
 }
